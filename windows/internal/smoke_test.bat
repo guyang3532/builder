@@ -141,6 +141,10 @@ echo Checking that CuDNN is available
 python -c "import torch; exit(0 if torch.backends.cudnn.is_available() else 1)"
 if ERRORLEVEL 1 exit /b 1
 
+echo Checking jit
+python %BUILDER_ROOT%\test_example_code\test_jit.py
+if ERRORLEVEL 1 exit /b 1
+
 goto end
 
 :libtorch
